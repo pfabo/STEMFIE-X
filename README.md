@@ -1,3 +1,5 @@
 # STEMFIE-X
 
-[link](./doc-sk/0001_obsah.ipynb)
+-------
+
+## [Dokumentácia v slovenskom jazyku](./doc-sk/0001_obsah.ipynb)
