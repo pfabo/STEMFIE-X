@@ -1,4 +1,4 @@
-STEMFIE-X library for openSCAD
+**STEMFIE-X library for openSCAD**
 
    Derived from:
    
