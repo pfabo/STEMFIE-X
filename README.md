@@ -2,4 +2,5 @@
 
 -------
 
-## [Dokumentácia v slovenskom jazyku](./doc-sk/0001_obsah.ipynb)
+## (SK) [Dokumentácia](./doc-sk/0001_obsah.ipynb)
+## (EN) Documentation
