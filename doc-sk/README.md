@@ -1,1 +1,1 @@
-Dokumentácia k STEMFIE-X v slovenskom jazyku
+# Dokumentácia k STEMFIE-X
