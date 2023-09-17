@@ -8,7 +8,7 @@ The purpose of the construction kit development was to support polytechnic educa
 
 Areas of use:
 
-- an intermediate level in teaching between constructions from construction sites and independent construction in professional CAD systems, with direct physical output of 3D printing of self-constructed devices and systems, primarily intended for the age category of high school students
+- an intermediate level in teaching between constructions from construction kits and independent construction in professional CAD systems, with direct physical output of 3D printing of self-constructed devices and systems, primarily intended for the age category of high school students
 - robotics, robotic parts and components, arms, manipulators, robotic chassis
 - models of machines and equipment
 - models and teaching aids for subjects focusing on the construction of machine parts
