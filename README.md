@@ -6,8 +6,8 @@ The STEMFIE-X kit is an extension of the [STEMFIE](https://www.stemfie.org/) pro
 
  ![banner](./doc-sk/img/banner_02.png)
 
-### (SK) [Dokumentácia](./doc-sk/0001_obsah.ipynb)
-### (EN) [Documentation](./doc-en/0001_obsah.ipynb)
+### (SK) [Dokumentácia](./doc-sk/0001_obsah.ipynb) (in construction)
+### (EN) [Documentation](./doc-en/0001_obsah.ipynb) (in the process of translation)
 
      
  ![banner](./doc-sk/img/banner_02.png)
