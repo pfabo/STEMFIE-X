@@ -22,8 +22,8 @@ Areas of use:
 #### [Documentation](./doc-en/0001_obsah.ipynb) (EN)
 
 ### Source code  (openSCAD format)
-#### [Libraries](./lib/README.md) 
-#### [Examples & Demos](./src/README.md) 
+#### [Libraries](./lib/) 
+#### [Examples & Demos](./src/) 
 
 
  ![banner](./doc-sk/img/img_0130.png)
