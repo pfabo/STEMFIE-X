@@ -18,19 +18,25 @@ Areas of use:
  ![banner](./doc-sk/img/banner_02.png)
 
 ### Documentation (jupyter lab/notebook format) 
-#### [Dokumentácia](./doc-sk/0001_obsah.ipynb) (SK)
-#### [Documentation](./doc-en/0001_obsah.ipynb) (EN)
+* [Dokumentácia](./doc-sk/0001_obsah.ipynb) (SK)
+* [Documentation](./doc-en/0001_obsah.ipynb) (EN)
 
 ### Source code  (openSCAD format)
-#### [Libraries](./lib/) 
-#### [Examples & Demos](./src/) 
+* [Libraries](./lib/) 
+* [Examples & Demos](./src/) 
 
-### Simple demo
-
+### Demo - Basic building blocks
 ```
-include <../../lib/stemfie-x.scad>
+// source code
+BU_Ty(3) beam_block([2,2,1]);
+BU_Tx(-2) brace(5);
+BU_Ty(-3) beam_block([3,1,1], holes=[false, false, true]);
+```
 
-// braces
+ ![demo02](./doc-sk/img/demo_02.png)
+
+### Demo - Simple gearbox
+```
 color("red")  BU_Tz(1+1/8) brace(3);
 color("red")  BU_Tz( -1/8) brace(3);
 
@@ -45,7 +51,7 @@ spur_gear (modul=1, tooth_number=28, width=BU/2, bore=4,  optimized=false);
 // axes 
 TKx(2*BU) color("blue") BU_Tz(1/2) Cy(2, 20); 
 ```
+ ![demo02](./doc-sk/img/demo_01.png)
 
- ![banner](./doc-sk/img/img_0130.png)
      
  ![banner](./doc-sk/img/banner_02.png)
