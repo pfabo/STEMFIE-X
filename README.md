@@ -25,6 +25,26 @@ Areas of use:
 #### [Libraries](./lib/) 
 #### [Examples & Demos](./src/) 
 
+### Simple demo
+
+```
+include <../../lib/stemfie-x.scad>
+
+// braces
+color("red")  BU_Tz(1+1/8) brace(3);
+color("red")  BU_Tz( -1/8) brace(3);
+
+// double gear 
+spur_gear (modul=1, tooth_number=28, width=5, bore=4, optimized=false); 
+BU_Tz(1/2)  spur_gear (modul=1, tooth_number=12, width=BU/2, bore=4, optimized=false);
+
+// simple gear
+color("green") BU_Tz(1/2) BU_Tx(2) Rz(6)      
+spur_gear (modul=1, tooth_number=28, width=BU/2, bore=4,  optimized=false);      
+ 
+// axes 
+TKx(2*BU) color("blue") BU_Tz(1/2) Cy(2, 20); 
+```
 
  ![banner](./doc-sk/img/img_0130.png)
      
