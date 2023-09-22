@@ -17,11 +17,11 @@ Areas of use:
 
  ![banner](./doc-sk/img/banner_02.png)
 
-### Documentation (jupyter lab/notebook format) 
+### Documentation (jupyter notebook) 
 * [Dokumentácia](./doc-sk/0001_obsah.ipynb) (SK)
 * [Documentation](./doc-en/0001_obsah.ipynb) (EN)
 
-### Source code  (openSCAD format)
+### Source code  (openSCAD)
 * [Libraries](./lib/) 
 * [Examples & Demos](./src/) 
 
