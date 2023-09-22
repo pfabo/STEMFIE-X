@@ -17,8 +17,14 @@ Areas of use:
 
  ![banner](./doc-sk/img/banner_02.png)
 
-### (SK) [Dokumentácia](./doc-sk/0001_obsah.ipynb) (in construction)
-### (EN) [Documentation](./doc-en/0001_obsah.ipynb) (in the process of translation)
+### Documentation (jupyter lab/notebook format) 
+#### [Dokumentácia](./doc-sk/0001_obsah.ipynb) (SK)
+#### [Documentation](./doc-en/0001_obsah.ipynb) (EN)
+
+### Source code  (openSCAD format)
+#### [Libraries](./doc-sk/0001_obsah.ipynb) 
+#### [Examples & Demos](./doc-sk/0001_obsah.ipynb) 
+
 
  ![banner](./doc-sk/img/img_0130.png)
      
