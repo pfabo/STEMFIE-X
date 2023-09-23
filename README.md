@@ -17,6 +17,9 @@ Areas of use:
 
  ![banner](./doc-sk/img/banner_02.png)
 
+### Installation
+* see STEMFIE-X Wiki 
+
 ### Documentation (jupyter notebook) 
 * [Dokumentácia](./doc-sk/0001_obsah.ipynb) (SK)
 * [Documentation](./doc-en/0001_obsah.ipynb) (EN)
