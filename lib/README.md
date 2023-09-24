@@ -1,8 +1,13 @@
 ## STEMFIE-X library for openSCAD*
 
+* stemfie-x.scad
+* constants.scad
+* common.scad
 * beams.scad
 * braces.scad
 * holes.scad
+* primitives.scad
+* /gears/gears.scad
 
 ### Derived from:
    
