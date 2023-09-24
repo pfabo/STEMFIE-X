@@ -1,6 +1,10 @@
-**STEMFIE-X library for openSCAD**
+## STEMFIE-X library for openSCAD*
 
-   Derived from:
+* beams.scad
+* braces.scad
+* holes.scad
+
+### Derived from:
    
 **Stemfie_OpenSCAD** 
    - Autor: Cantareus
