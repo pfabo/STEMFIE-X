@@ -13,7 +13,7 @@ Areas of use:
 - models of machines and equipment
 - models and teaching aids for subjects focusing on the construction of machine parts
 - teaching and demonstration aids for physics, electronics, sets of experiments, sets for demonstrations of electric motors, kits for sample electric circuits
-- functional mechatronic and electromechanical units – for example plotter, irrigation system, small CNC milling machine ...
+- functional mechatronic and electromechanical units – simple plotter, irrigation system, small CNC milling machine ...
 
  ![banner](./doc-sk/img/banner_02.png)
 
@@ -26,7 +26,11 @@ Areas of use:
 
 ### Source code  (openSCAD)
 * [Libraries](./lib/) 
-* [Examples & Demos](./src/) 
+* [Examples & Demos](./src/)
+  * Basic construction
+  * Simple machines and mechanical parts
+  * Motors and servos
+  * Support for electronics and electroics modules 
 
 ### Demo - Basic building blocks
 ```
