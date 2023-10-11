@@ -151,7 +151,7 @@ module brace_arc(r, angle, h = 0.25, holes = 2)
       for(n = [0:holes - 1])
         Rz(n * angle / (holes-(angle == 360?0:1)))
           BU_Tx(r)
-            hole(depth = h, neg = true);
+            hole(depth = h); 
   }
 }
 
