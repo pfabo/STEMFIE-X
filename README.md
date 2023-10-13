@@ -17,13 +17,12 @@ Areas of use:
 - teaching and demonstration aids for physics, electronics, sets of experiments, sets for demonstrations of electric motors, kits for sample electric circuits
 - functional mechatronic and electromechanical units – simple plotter, irrigation system, small CNC milling machine ...
 
- ![banner](./doc-sk/img/banner_02.png)
-
 ### [Installation](https://github.com/pfabo/STEMFIE-X/wiki) 
 ### [Documentation](./doc-en/0001_obsah.ipynb) (jupyter notebook) 
 ### [Library source code](./lib/)  (openSCAD)
 ### [Examples & Demos](./src/)
 
+ ![banner](./doc-sk/img/banner_02.png)
  
 ### Demo - Basic building blocks
 ```
