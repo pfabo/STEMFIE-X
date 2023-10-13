@@ -59,7 +59,7 @@ BU_Tz(1 + 1/2) BU_Ty(2+1/2) BU_Tx(-1/2) Ry()
 // motor holder
 //------------------------------------------------------------------------------
 // motor
-BU_Tz(1 + 1/2 ) BU_Ty(-1-1/2)  BU_Tx(-1/4) Rz()  Rx() motor_dc();
+BU_Tz(1 + 1/2 ) BU_Ty(-1-1/2)  BU_Tx(-1/4) Rz()  Rx() motor_dc_21();
 
 // holder
 color("lightgrey") BU_Ty(-3)  BU_Tx(1) 
