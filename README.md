@@ -23,9 +23,7 @@ Areas of use:
 * see [STEMFIE-X Wiki](https://github.com/pfabo/STEMFIE-X/wiki) 
 
 ### Documentation (jupyter notebook) 
-* [Documentation](./doc-en/0001_obsah.ipynb) (EN)
-* [Dokumentácia](./doc-sk/0001_obsah.ipynb) (SK)
-
+* [Documentation](./doc-en/0001_obsah.ipynb) 
 
 ### Source code  (openSCAD)
 * [Libraries](./lib/) 
