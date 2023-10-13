@@ -10,7 +10,7 @@ HoleRadius = 2;
 
 // Constant: FragmentNumber
 // Description: Universal tesselation value of curved surfaces
-FragmentNumber = 32;
+FragmentNumber = 64;
 
 $fn = FragmentNumber;
 

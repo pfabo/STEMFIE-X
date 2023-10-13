@@ -7,11 +7,15 @@ Modules:
     BU_cube()       basic cube in block units
     beam_block()    beam with holes
     beam_cross()    'V', 'L', 'T' and 'X' beam shapes
+    
+History:
+    231011      uprava posunu pri center=false pre baam_block  
 */
 
 
 /* 
 Module: BU_cube()
+        BU_cube_rounded()
     Usage:
         BU_cube(size = [1,1,1]);
 
@@ -19,17 +23,18 @@ Module: BU_cube()
         Create a cube of given size in block units.
 
     Arguments:
-        BU_cube = Size of cube
+        size = vector, size of cube
 
     Example(3D):
         BU_cube();
         BU_cube([3,1,1]);
 */
-module BU_cube(size = [1,1,1], x=undef, y=undef, z=undef, center=true)
+module BU_cube(size = [1,1,1], x=undef, y=undef, z=undef, center=false)
 {
     x = (x==undef? size: x);
     cube(x[0] == undef?[x*BU, y?y*BU:x*BU, y?(z?z*BU:1*BU):x*BU]:x*BU, center=center); 
 }
+
 
 module BU_cube_rounded(size = [1,1,1], x=undef, y=undef, z=undef, r=0.1, center=false)
 {
@@ -42,14 +47,15 @@ module BU_cube_rounded(size = [1,1,1], x=undef, y=undef, z=undef, r=0.1, center=
 /*
 Module: beam_block()
     Usage: 
-        beam_block(size, holes, center);
+        beam_block(size, <holes = [true, true, true]>, <center = false>);
 
     Description:
         Creates a Stemfie beam with holes.
 
     Arguments:
-        size = Size of block to create in block units.
-        holes = Array of booleans in xyz order for which directions to create holes or a single boolean for all directions.
+        size = vector, size of block to create in block units.
+        holes = Array of booleans in xyz order for which directions to create holes 
+               or a single boolean for all directions.
 
     Example(3D): Standard Stemfie beam
         beam_block(3);
@@ -60,14 +66,14 @@ Module: beam_block()
     Example(3D): Stemfie 3D "beam"
         beam_block([3, 2, 2]);
 */
-module beam_block(size = [4,1,1], holes = [true, true, true], center = true)
+module beam_block(size = [4,1,1], holes = [true, true, true], center = false)
 {
   size  = is_list(size)?size:[size,1, 1];
   holes = is_list(holes)?holes:[holes,holes,holes];
   
   faceRotate = [[0,90,0],[90,0,0],[0,0,90]];
   
-  T(center?0:((size - [1,1,1]) * BU / 2))
+  T(center?0:((size - [1,1,1]) * BU / 2 + [1/2, 1/2, 1/2]*BU))
   D()
   {
         BU_cube(size, center=true);
@@ -85,13 +91,15 @@ module beam_block(size = [4,1,1], holes = [true, true, true], center = true)
 /*
 Module: beam_cross()
     Usage: 
-        beam_cross(lengths, holes);
+        beam_cross(lengths, <h=1>, <holes = [true, true, true]> );
+        beam_cross(lengths, <h=1>, <holes = true> );
 
         Description:
             Overlaps two Stemfie beams. It can be used to create 'V', 'L', 'T' and 'X' shapes.
 
         Arguments:
-            lengths = Array of 2, 3 or 4 integers. Lengths extending from intersection block with clockwise ordering.
+            lengths = Array of 2, 3 or 4 integers. Lengths extending from intersection block 
+                      with clockwise ordering.
 
     Example(3D): 'V' beam
         beam_cross([3,3]);
@@ -107,6 +115,9 @@ Module: beam_cross()
 */
 module beam_cross(lengths = [2,2,2,2], h=1, holes = [true, true, true])
 {
+  
+  holes = is_list(holes)?holes:[holes,holes,holes];
+  
   cross_helper(len(lengths))
   {
     beam_block([lengths[0] + 1,1,h], holes, center = false);

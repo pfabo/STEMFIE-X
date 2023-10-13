@@ -103,16 +103,16 @@ module BU_TKz(z)
 // Example(2D):
 //   BU_slot(2);
 
-module BU_slot(length)
-{
-  slot(length, BU/2);
-}
+//module BU_slot(length)
+//{
+//  slot(length);
+//}
 
 //----------------------------------------------------------------------
 
 // Module: slot()
 // Usage:
-//   slot(length, r);
+//   BU_slot(length, r);
 //
 // Description:
 //   Create a 2D slot profile.
@@ -121,9 +121,9 @@ module BU_slot(length)
 //   length = Length of slot in block units.
 //
 // Example(2D):
-//   slot(2, r = 2 + Clearance);
+//   BU_slot(2, r = 2 + Clearance);
 //
-module slot(length, r = BU/2)
+module BU_slot(length, r = BU/2)
 {
   hull()
   {

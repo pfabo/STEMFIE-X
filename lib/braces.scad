@@ -6,26 +6,28 @@ Modules:
     brace(size, <h=>, <holes=>);
     brace_cross(lengths = [2,2,2,2], h = 0.25);
     brace_arc(r, angle, h = 0.25, holes = 2);   
+    brace_plate(size=[2,2], h=1/4, holes=true);
     
-230715:    
-    brace_plate(size=[2,2], h=1/4, holes=true)
-    
-    
+230715  brace_plate
+231011  update - doplneny parameter center pre brace_plate
+        update - doplneny parameter center pre brace
+        update - brace_arc posunuty do z=0
 */
+
 
 /*
 Module: brace()
 
     Usage: 
-        brace(size, <h=>, <holes=>);
+        brace(size, <h=1/4>, <holes=true>);
 
     Description:
         Creates a Stemfie brace with holes.
 
     Arguments:
-        size = Length of brace to create in block units.
-        h = height of brace
-        holes = Set to false to create blank brace.
+        size   = length of brace to create in block units.
+        h      = height of brace
+        holes = set to false to create blank brace.
 
     Example(3D): Standard Stemfie brace
         brace(3);
@@ -33,9 +35,11 @@ Module: brace()
     Example(3D): Double thickness blank brace
         brace(3, h = 0.5, holes = false);
 */
-module brace(size, h = 0.25, holes = true)
+module brace(size, h = 0.25, holes = true, center=false)
 {
-  BU_Tx((size-1)/2)  
+  //BU_Tz(h/2)                // update, posun do polohy z=0
+  //BU_Tx((size-1)/2)  
+  T(center?0:(([size, 0, 0] - [1,0,0]) * BU / 2 + [0, 0, h/2]*BU))
   D()
   {
     U()
@@ -44,7 +48,7 @@ module brace(size, h = 0.25, holes = true)
         BU_slot(size);
     }
     if(holes)
-      hole_grid([size,1],h*1.05);
+      hole_grid([size,1], h*1.05);
   }
 }
 
@@ -52,14 +56,15 @@ module brace(size, h = 0.25, holes = true)
 
 // Module: brace_cross()
 // Usage: 
-//   brace_cross(lengths, <h>);
+//   brace_cross(lengths = [2,2,2,2], <h=1/4>);
 //
 // Description:
 //   Overlaps two Stemfie brace. It can be used to create 'V', 'L', 'T' and 'X' shapes.
 //
 // Arguments:
-//   lengths = Array of 2, 3 or 4 integers. Lengths extending from intersection block with clockwise ordering.
-//   h = Height of brace, default = 0.25BU
+//   lengths = Array of 2, 3 or 4 integers. Lengths extending from intersection block 
+//             with clockwise ordering.
+//   h       = height of brace, default = 1/4 BU
 //
 // Example(3D): 'V' brace
 //   brace_cross([3,3]);
@@ -89,7 +94,7 @@ module brace_cross(lengths = [2,2,2,2], h = 0.25)
 
 // Module: brace_arc()
 // Usage:
-//   brace_arc(r, angle, h = 0.25, holes = 2);
+//   brace_arc(r, angle, <h = 1/4>, <holes = 2> );
 //
 // Description:
 //   Creates a circular arc brace. Detects when hole spacing is less than 
@@ -98,7 +103,7 @@ module brace_cross(lengths = [2,2,2,2], h = 0.25)
 //   and a circular brace is created.
 //
 // Arguments:
-//   r = Radius in block units to the center of the brace.
+//   r     = Radius in block units to the center of the brace.
 //   angle = Angle between start and end points.
 //
 // Example(3D): Holes with 60 degree spacing have 1 radius spacing.
@@ -122,6 +127,7 @@ module brace_arc(r, angle, h = 0.25, holes = 2)
   //Reduce the number of holes if necessary to ensure spacing is always greater than 1BU.
   holes = min(floor(angle/180 * PI * r) + 1, holes);
   
+  BU_Tz(h/2)
   D() // diferencie obluku a dier
   {
     U() // zjednotenie hlavneho obluka a koncovych oblukov
@@ -158,19 +164,26 @@ module brace_arc(r, angle, h = 0.25, holes = 2)
 
 // Module: brace_plate()
 // Usage:
-//   brace_plate(size=[1,1], h=1/4, holes=True);
+//   brace_plate(size, <h=1/4>, <holes=True>, <center=false>);
 //
 // Description:
 //   Vytvori platnu so zaoblenymi okrajmi s rovnakym polomerom ako spojka.
 //   Minimalne rozmery su 2x2 BU 
 //
-module brace_plate(size=[2,2], h=1/4, holes=true)
+// Arguments:
+//   size   = array [x,y] - plate dimension 
+//   h      = height of brace plate, default = 1/4 BU
+//   holes  = set to false to create blank brace plate
+//
+//
+module brace_plate(size, h=1/4, holes=true, center=false)
 {
 
     x = size.x>=2 ? size.x-1 : 1;
     y = size.y>=2 ? size.y-1 : 1;
     hz = h*BU;
 
+    T(center?0:( ([size.x, size.y, 0] - [1,1,0]) * BU / 2 + [1/2, 1/2, h/2]*BU ) )  
     D()
     {
         hull(){
