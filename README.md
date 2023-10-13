@@ -19,20 +19,12 @@ Areas of use:
 
  ![banner](./doc-sk/img/banner_02.png)
 
-### Installation
-* see [STEMFIE-X Wiki](https://github.com/pfabo/STEMFIE-X/wiki) 
+### [Installation](https://github.com/pfabo/STEMFIE-X/wiki) 
+### [Documentation](./doc-en/0001_obsah.ipynb) (jupyter notebook) 
+### [Library source code](./lib/)  (openSCAD)
+### [Examples & Demos](./src/)
 
-### Documentation (jupyter notebook) 
-* [Documentation](./doc-en/0001_obsah.ipynb) 
-
-### Source code  (openSCAD)
-* [Libraries](./lib/) 
-* [Examples & Demos](./src/)
-  * Basic construction
-  * Simple machines and mechanical parts
-  * Motors and servos
-  * Support for electronics and electroics modules 
-
+ 
 ### Demo - Basic building blocks
 ```
 // source code
