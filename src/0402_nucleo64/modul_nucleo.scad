@@ -1,8 +1,8 @@
 //  NUCLEO64 board holder in BU grid
 
+include <../../../lib/stemfie-x.scad>
 
-include <../../lib/stemfie-x.scad>
-
+h=1/4;   // holder base thickness
 
 module pin(){
     D(){
@@ -12,14 +12,15 @@ module pin(){
         }
 }
 
-// piny pre prisrobovanie dosky
-Tx(33)    Ty(-2.54) pin();
-Tx(0)     Ty(5*2.54 + 5.08 + 7*2.54 + 13.97) pin();
-Tx(48.26) Ty(7*2.54 + 4.06 + 9*2.54 +  3.56) pin();
+// pins
+BU_Tz(h) {
+    Tx(33)    Ty(-2.54) pin();
+    Tx(0)     Ty(5*2.54 + 5.08 + 7*2.54 + 13.97) pin();
+    Tx(48.26) Ty(7*2.54 + 4.06 + 9*2.54 +  3.56) pin();
+}
 
-h=1/4;   // thickness
 
-// spodna doska s vystuhami
+// holder base
 color("olive") Tx(-10) Ty(-10) Tz(0) 
 U()
 {
