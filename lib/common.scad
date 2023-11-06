@@ -133,27 +133,6 @@ module BU_slot(length, r = BU/2)
   }
 }
 
-//----------------------------------------------------------------------
-
-module cross_helper(num = 4)
-{
-  for(i = [0: min(3, num - 1)])
-  {
-    Rz(-90 * i)
-    D()
-    {
-      children(i);
-
-      if(num > 1)
-      {
-        if(num != 2 || i != 1)
-          Rz(num == 3 && i == 2?0:45)BU_Tx(-1)Cu(BU * 2);
-        if(num != 2 || i != 0)
-          Rz(num == 3 && i == 0?0:-45)BU_Tx(-1)Cu(BU * 2);
-      }
-    }
-  }
-}
 
 /// https://www.thingiverse.com/thing:644830
 /// ShortCuts.scad 
@@ -220,7 +199,9 @@ module I() intersection_for(n=[0:$children-1]) children(n);
 
 // rotates N instances of children around z axis
 module rotN(r=10, N=4, offs=0, M=undef) for($i=[0:(M?M-1:N-1)])  rotate([0,0,offs+$i*360/N])  translate([r,0,0]) children();
+
 module forN(r=10, N=4, offs=0, M=undef) rotN(r, N, offs, M) children();
+
 module forX(dx = 10, N=4) for(i=[0:N-1]) T(-((N-1)/2-i)*dx) children(); 
 module forY(dy = 10, M=4) for(i=[0:M-1]) Ty(-((M-1)/2-i)*dy) children(); 
 module forZ(dz = 10, M=4) for(i=[0:M-1]) Tz(-((M-1)/2-i)*dz) children(); 

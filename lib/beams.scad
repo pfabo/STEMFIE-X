@@ -16,6 +16,7 @@ History:
 /* 
 Module: BU_cube()
         BU_cube_rounded()
+        
     Usage:
         BU_cube(size = [1,1,1]);
 
@@ -113,21 +114,16 @@ Module: beam_cross()
     Example(3D): 'X' beam
         beam_cross([2,2,2,2]);
 */
-module beam_cross(lengths = [2,2,2,2], h=1, holes = [true, true, true])
+module beam_cross(lengths = [2,2], h=1, holes = [true, true, true])
 {
   
-  holes = is_list(holes)?holes:[holes,holes,holes];
+  holes = is_list(holes) ? holes : [holes,holes,holes];
   
-  cross_helper(len(lengths))
-  {
-    beam_block([lengths[0] + 1,1,h], holes, center = false);
-    //Don't use a for loop here, the children will not be available to parent module.
-    if(len(lengths) > 1)
-      beam_block([lengths[1] + 1,1,h], holes, center = false);
-    if(len(lengths) > 2)
-      beam_block([lengths[2] + 1,1,h], holes, center = false);
-    if(len(lengths) > 3)
-      beam_block([lengths[3] + 1,1,h], holes, center = false);
-  }
-}
+    for(i = [0: len(lengths)-1])
+    {
+        Rz(90 * i) 
+        BU_Tx(lengths[i]/2)
+        beam_block([lengths[i] + 1, 1, h], holes, center = true);
+    }
+ }
 

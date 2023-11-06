@@ -79,16 +79,12 @@ module brace(size, h = 0.25, holes = true, center=false)
 //   brace_cross([1, 1, 1, 1], 0.5);
 module brace_cross(lengths = [2,2,2,2], h = 0.25)
 {
-  cross_helper(len(lengths))
-  {
-    brace(lengths[0] + 1, h);
-    if(len(lengths) > 1)
-      brace(lengths[1] + 1, h);
-    if(len(lengths) > 2)
-      brace(lengths[2] + 1, h);
-    if(len(lengths) > 3)
-      brace(lengths[3] + 1, h);
-  }
+    for(i = [0: len(lengths)-1])
+    {
+        Rz(90 * i) 
+        BU_Tx(lengths[i]/2)
+        brace(lengths[i] + 1,   center = true);
+    }
 }
 
 
@@ -118,47 +114,51 @@ module brace_cross(lengths = [2,2,2,2], h = 0.25)
 
 module brace_arc(r, angle, h = 0.25, holes = 2)
 {
-  // kontrola priemeru, r>1
-  r = r<1 ? 1: r;
-  
-  //If the remaining angle leaves a distance less than 1BU increase the angle to 360.
-  angle = ((1 - min(angle, 360)/360) * r * PI * 2 < 1)?360:min(angle, 360);
-  
-  //Reduce the number of holes if necessary to ensure spacing is always greater than 1BU.
-  holes = min(floor(angle/180 * PI * r) + 1, holes);
-  
-  BU_Tz(h/2)
-  D() // diferencie obluku a dier
+  BU_Tz(-h/2)
   {
-    U() // zjednotenie hlavneho obluka a koncovych oblukov
-    {
-      if(angle < 360)
-      for(i=[0, 1])
-      {
-        Rz(i * angle)
-          BU_Tx(r)
-            Rz(i * 180)
-              I(){
-                // koncove obluky 
-                LiEx(BU * h){
-                    Ci(BU/2);
-                    BU_Ty(-1/2) Cu(BU+1, BU, BU * h + 1);
-                    }
-              }
-      }
+      // kontrola priemeru, r>1
+      r = r<1 ? 1: r;
       
-      // hlavny obluk - oprava povodneho textu
-      rotate_extrude(angle=angle, convexity = 8, $fn = FragmentNumber * r * 2) 
-            BU_Tx( r -1/2) BU_Ty(-h/2) square([BU, h*BU]);
+      //If the remaining angle leaves a distance less than 1BU increase the angle to 360.
+      angle = ((1 - min(angle, 360)/360) * r * PI * 2 < 1)?360:min(angle, 360);
+      
+      //Reduce the number of holes if necessary to ensure spacing is always greater than 1BU.
+      holes = min(floor(angle/180 * PI * r) + 1, holes);
+      
+      BU_Tz(h/2)
+      D() // diferencie obluku a dier
+      {
+        U() // zjednotenie hlavneho obluka a koncovych oblukov
+        {
+          if(angle < 360)
+          for(i=[0, 1])
+          {
+            Rz(i * angle)
+              BU_Tx(r)
+                Rz(i * 180)
+                  I(){
+                    // koncove obluky 
+                    LiEx(BU * h){
+                        Ci(BU/2);
+                        BU_Ty(-1/2) Cu(BU+1, BU, BU * h + 1);
+                        }
+                  }
+          }
+          
+          // hlavny obluk - oprava povodneho textu
+          rotate_extrude(angle=angle, convexity = 8, $fn = FragmentNumber * r * 2) 
+                BU_Tx( r -1/2) BU_Ty(-h/2) square([BU, h*BU]);
+        }
+        
+        // diery
+        if(holes > 1)
+          for(n = [0:holes - 1])
+            Rz(n * angle / (holes-(angle == 360?0:1)))
+              BU_Tx(r)
+                hole(depth = h); 
+      }
+  
     }
-    
-    // diery
-    if(holes > 1)
-      for(n = [0:holes - 1])
-        Rz(n * angle / (holes-(angle == 360?0:1)))
-          BU_Tx(r)
-            hole(depth = h); 
-  }
 }
 
 
