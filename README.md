@@ -52,5 +52,14 @@ TKx(2*BU) color("blue") BU_Tz(1/2) Cy(2, 20);
 ```
  ![demo02](./doc-sk/img/demo_01.png)
 
+### Update 231106
+
+Unification of the "center" parameter and thickness centering for implicitly generated components.
+
+```
+brace_arc(3, 360, holes = 12);
+brace_cross([3,3,3,3]);
+```
+ ![fix_231106](./doc-sk/img/fix_231106.png)
      
  ![banner](./doc-sk/img/banner_02.png)
