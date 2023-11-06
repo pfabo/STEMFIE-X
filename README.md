@@ -24,7 +24,7 @@ Areas of use:
 
  ![banner](./doc-sk/img/banner_02.png)
  
-### Demo - Basic building blocks
+### Basic building blocks
 ```
 // source code
 BU_Ty(3) beam_block([2,2,1]);
@@ -34,7 +34,7 @@ BU_Ty(-3) beam_block([3,1,1], holes=[false, false, true]);
 
  ![demo02](./doc-sk/img/demo_02.png)
 
-### Demo - Simple gearbox
+### Simple gearbox
 ```
 color("red")  BU_Tz(1+1/8) brace(3);
 color("red")  BU_Tz( -1/8) brace(3);
