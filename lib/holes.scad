@@ -28,7 +28,7 @@ Modules:
 //   }
 //
 
-module hole(depth = 1, center = true)
+module hole(depth = 1)
 {
     LiEx(depth * BU * 1.005)
         Ci(r = HoleRadius);
@@ -119,7 +119,8 @@ module hole_list(list = [[0,0]], l = 1)
 
 module hole_slot(position=[x,y], length=1, h=1)
 {
-    LiEx(h=h*BU) BU_T(position.x, position.y, 0)
-        slot(length, HoleRadius);
+    LiEx(h = h*BU) 
+    BU_T(position.x, position.y, 0)
+    BU_slot(length, HoleRadius);
 }
 

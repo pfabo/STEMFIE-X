@@ -89,28 +89,9 @@ module BU_TKz(z)
 }
 
 
-
-// Module: BU_slot()
-// Usage:
-//   BU_slot(length);
-//
-// Description:
-//   Create a 2D slot profile with radius {{BU}}/2
-//
-// Arguments:
-//   l = Length of slot in block units (BU).
-//
-// Example(2D):
-//   BU_slot(2);
-
-//module BU_slot(length)
-//{
-//  slot(length);
-//}
-
 //----------------------------------------------------------------------
 
-// Module: slot()
+// Module: BU_slot()
 // Usage:
 //   BU_slot(length, r);
 //
