@@ -183,9 +183,22 @@ module rotN(r=10, N=4, offs=0, M=undef) for($i=[0:(M?M-1:N-1)])  rotate([0,0,off
 
 module forN(r=10, N=4, offs=0, M=undef) rotN(r, N, offs, M) children();
 
-module forX(dx = 10, N=4) for(i=[0:N-1]) T(-((N-1)/2-i)*dx) children(); 
-module forY(dy = 10, M=4) for(i=[0:M-1]) Ty(-((M-1)/2-i)*dy) children(); 
-module forZ(dz = 10, M=4) for(i=[0:M-1]) Tz(-((M-1)/2-i)*dz) children(); 
-module forXY(dx = 10, N=4, dy = 10, M=4) forX(dx, N) forY(dy, M) children(); 
+module forX(dx = 10, N=4){
+    for( i=[0 : 1: N-1]) 
+        T(-((N-1)/2-i)*dx) children(); 
+}
+    
+module forY(dy = 10, M=4){
+    for(i=[0: 1 : M-1]) 
+        Ty(-((M-1)/2-i)*dy) children(); 
+}
 
+module forZ(dz = 10, M=4){
+    for(i=[0:M-1]) 
+        Tz(-((M-1)/2-i)*dz) children(); 
+}
+        
+module forXY(dx = 10, N=4, dy = 10, M=4) {
+    forX(dx, N) forY(dy, M) children(); 
+}
 

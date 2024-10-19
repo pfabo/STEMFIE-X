@@ -117,7 +117,7 @@ module hole_list(list = [[0,0]], l = 1)
 // Example(2D):
 //   hole_slot(2);
 
-module hole_slot(position=[x,y], length=1, h=1)
+module hole_slot(position=[0,0], length=2, h=1)
 {
     LiEx(h = h*BU) 
     BU_T(position.x, position.y, 0)
