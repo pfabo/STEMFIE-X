@@ -1,4 +1,4 @@
-# STEMFIE-X
+# STEMFIE-X OpenScad Edition
 
  ![banner](./doc-sk/img/banner_02.png)
  
